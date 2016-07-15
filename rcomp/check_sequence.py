@@ -17,12 +17,8 @@ def check_sequence(seq):
     if seq:
         header = seq.split('\r\n',maxsplit=1)[0]
         fasta = seq[len(header):]
-        #return header, fasta
         if header.startswith(">"):
             fasta_sequence = '\n'.join(fasta).replace('\n', '').replace('\r','').lower()
-            #fs = fasta_sequence.replace('\n', '').lower()
-            #fs2 = fs.replace('\r','')
-            #return seq, header, fasta, fasta_sequence,
             if any(char.isdigit() for char in fasta_sequence) \
                     or not all(c in intab for c in fasta_sequence):
                 return "Enter a valid sequence"
@@ -47,6 +43,3 @@ def reverse_complement(fasta_sequence):
     #print("reverse complement is:", rev_comp)
     return rev_comp
 
-
-def rtst(seq):
-    return seq[::-1]
